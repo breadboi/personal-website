@@ -5,14 +5,69 @@
 /* 304d6d */
 /* 82a0bc */
 .circular {
-    width: 300px;
-    height: 300px;
-    border-radius: 250px;
-    -webkit-border-radius: 250px;
-    -moz-border-radius: 250px;
-    
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-  }
+  width: 300px;
+  height: 300px;
+  border-radius: 250px;
+  -webkit-border-radius: 250px;
+  -moz-border-radius: 250px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.backgroundColor {
+  background-color: #304d6d;
+}
+
+a {
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.white {
+  color: #FFF;
+}
+
+.btn i.zmdi{
+  margin-right: 3px;
+}
+
+i.fa, a, a:hover {
+  color: #82a0bc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+
+  font-family: "Roboto";
+  font-weight: 400;
+  line-height: 1.33;
+  border-radius: 6px;
+  border: solid 2px #82a0bc;
+  background: transparent;
+  text-align: center;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #82a0bc;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.btn-lg {
+  padding: 18px 27px;
+  font-size: 20px;
+}
+
+.btn-sm {
+  padding: 14px 18px;
+  font-size: 16px;
+}
