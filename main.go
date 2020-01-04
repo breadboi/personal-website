@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
+	"./src"
 )
 
 func main() {
@@ -21,4 +22,10 @@ func setupRouter() *gin.Engine {
 	router.Use(static.Serve("/", static.LocalFile("./public", true)))
 
 	return router
+}
+
+func loadGithubContent() {
+	repositories := getRepos()
+
+	repositories
 }
