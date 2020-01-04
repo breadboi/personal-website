@@ -1,9 +1,9 @@
-class HelloWorld extends React.Component
+class Header extends React.Component
 {
   render()
   {
     return (
-      <div className="container">
+      <div className="grid grid-pad">
         <div className="row text-center">
           <img src="assets/me.png" alt="Avatar" className="circular" />
         </div>
@@ -22,7 +22,7 @@ class HelloWorld extends React.Component
 
         <div className="row text-center">
           <div className="col">
-            <a href="assets/resume-samples.pdf" class="btn btn-lg" title="View Resumé">
+            <a href="assets/Resume_BrettCarney.PDF" class="btn btn-lg" title="View Resumé">
               <i class="zmdi zmdi-file"></i> View CV
             </a>
           </div>
@@ -32,4 +32,4 @@ class HelloWorld extends React.Component
   }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById("app"));
+ReactDOM.render(<Header />, document.getElementById("header"));
