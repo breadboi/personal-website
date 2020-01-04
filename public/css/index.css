@@ -17,7 +17,18 @@
   margin-bottom: 20px;
 }
 
-.backgroundColor {
+.skills-section {
+  background-color: #a7cced;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.skills-row {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+body {
   background-color: #304d6d;
 }
 
