@@ -33,7 +33,7 @@ class Projects extends React.Component
                 <h2>Projects</h2>
                 <p>Here are my most recent projects.</p>
                 <div className="row">
-                    <div className="container">
+                    <div className="grid grid-pad">
                         {this.state.projects.map(function (project, i)
                         {
                             return <Project key={i} project={project} />;
@@ -55,14 +55,12 @@ class Project extends React.Component
     render()
     {
         return (
-            <div className="col-xs-4">
-                <div className="panel panel-default">
-                    <div className="panel-heading">#{this.props.project.FullName}</div>
-                    <div className="panel-body">
-                        {this.props.project.Description}
-                    </div>
-                    <div className="panel-footer">
-                        {this.props.project.StargazersCount} Stars &nbsp;
+            <div className="col">
+                <div className="card project-card">
+                    <div className="card-body">
+                        <h4 className="card-title">{this.props.project.FullName}</h4>
+                        <p className="card-text">{this.props.project.Description}</p>
+                        <a href={"https://github.com/" + this.props.project.FullName} className="btn btn-primary">See Source</a>
                     </div>
                 </div>
             </div>
