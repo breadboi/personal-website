@@ -36,7 +36,7 @@ func setupRouter() *gin.Engine {
 }
 
 func GithubHandler(c *gin.Context) {
-	repositories := GetRepos()
+	repositories := GetRecentRepos()
 
 	c.Header("Content-Type", "application/json")
 
