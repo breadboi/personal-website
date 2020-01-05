@@ -9,7 +9,7 @@ class Projects extends React.Component {
     }
 
     serverRequest() {
-        $.get("http://localhost:8080/api/github", res => {
+        $.get("/api/github", res => {
             this.setState({
                 projects: res
             });
@@ -52,9 +52,9 @@ class Project extends React.Component {
                 <div className="card project-card">
                     <div className="card-body">
                         <h4 className="card-title">{this.props.project.FullName}</h4>
-                        <p className="card-text">{this.props.project.Description}</p>
-                        <a href={"https://github.com/" + this.props.project.FullName} className="btn">See Source</a>
+                        <p className="card-text">{this.props.project.Description}</p>                        
                     </div>
+                    <a href={"https://github.com/" + this.props.project.FullName} target="_blank" className="btn stretched-link">See Source</a>
                 </div>
             </div>
         )
