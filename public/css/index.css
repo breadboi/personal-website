@@ -5,6 +5,16 @@
 /* 304d6d */
 /* 82a0bc */
 
+@media only screen and (max-width: 700px) {
+  .mobile-size-card {
+    height: 300px;
+    width: 300px !important;
+    margin-bottom: 15px;
+    margin-left: 9% !important;
+    margin-right: 5% !important;
+  }
+}
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -46,7 +56,7 @@ html, body {
 
 .project-card {
   height: 300px;
-  width: 300px;
+  width: 500px;
   margin-bottom: 15px;
   margin-left: 15px;
 }
