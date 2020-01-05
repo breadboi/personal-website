@@ -24,10 +24,10 @@ class Projects extends React.Component {
         return (
             <div className="grid grid-pad projects-section">
 
-                <div className="row text-center">
+                <div className="row text-center projects-header">
                     <div className="col">
                         <h2>Projects</h2>
-                        <p>Here are my most recent projects.</p>
+                        <p>These are the most recent projects I've made commits to.</p>
                     </div>
                 </div>
 
