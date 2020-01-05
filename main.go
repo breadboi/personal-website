@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
@@ -20,11 +22,23 @@ func setupRouter() *gin.Engine {
 	// Serve frontend static files
 	router.Use(static.Serve("/", static.LocalFile("./public", true)))
 
+	api := router.Group("/api")
+	{
+		api.GET("/", func(c *gin.Context) {
+			c.JSON(http.StatusOK, gin.H{
+				"message": "pong",
+			})
+		})
+		api.GET("/github", GithubHandler)
+	}
+
 	return router
 }
 
-func loadGithubContent() {
-	repositories := getRepos()
+func GithubHandler(c *gin.Context) {
+	repositories := GetRepos()
 
-	repositories
+	c.Header("Content-Type", "application/json")
+
+	c.JSON(http.StatusOK, repositories)
 }
