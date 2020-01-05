@@ -48,7 +48,7 @@ class Project extends React.Component {
 
     render() {
         return (
-            <div className="col">
+            <div className="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                 <div className="card project-card">
                     <div className="card-body">
                         <h4 className="card-title">{this.props.project.FullName}</h4>

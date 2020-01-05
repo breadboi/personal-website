@@ -5,6 +5,11 @@
 /* 304d6d */
 /* 82a0bc */
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .circular {
   width: 300px;
   height: 300px;
