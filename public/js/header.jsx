@@ -1,9 +1,8 @@
-class Header extends React.Component
-{
-  render()
-  {
+class Header extends React.Component {
+  render() {
     return (
       <div className="grid grid-pad">
+
         <div className="row text-center">
           <img src="assets/me.png" alt="Avatar" className="circular" />
         </div>
