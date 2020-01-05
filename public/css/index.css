@@ -4,6 +4,7 @@
 /* a7cced */
 /* 304d6d */
 /* 82a0bc */
+
 .circular {
   width: 300px;
   height: 300px;
@@ -18,9 +19,8 @@
 }
 
 .skills-section {
-  background-color: #a7cced;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  background-color: #82a0bc;
+  margin-top: 20px;
 }
 
 .skills-row {
@@ -28,8 +28,20 @@
   margin-right: 5%;
 }
 
-body {
+.projects-section {
   background-color: #304d6d;
+  margin-bottom: 10%;
+}
+
+.project-card {
+  height: 300px;
+  width: 300px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+body {
+  background-color: #82a0bc;
 }
 
 a {

@@ -1,9 +1,8 @@
-class Header extends React.Component
-{
-  render()
-  {
+class Header extends React.Component {
+  render() {
     return (
       <div className="grid grid-pad">
+
         <div className="row text-center">
           <img src="assets/me.png" alt="Avatar" className="circular" />
         </div>
@@ -22,8 +21,8 @@ class Header extends React.Component
 
         <div className="row text-center">
           <div className="col">
-            <a href="assets/Resume_BrettCarney.PDF" class="btn btn-lg" title="View Resumé">
-              <i class="zmdi zmdi-file"></i> View CV
+            <a href="assets/Resume_BrettCarney.PDF" target="_blank" class="btn btn-lg" title="View Resumé">
+              <i class="zmdi zmdi-file"></i> Resumé
             </a>
           </div>
         </div>
