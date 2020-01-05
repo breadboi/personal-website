@@ -38,7 +38,10 @@ func setupRouter() *gin.Engine {
 func GithubHandler(c *gin.Context) {
 	repositories := GetRecentRepos()
 
+	// Only display the most recent six repositories
+	trimmedRepositories := append(repositories[:6])
+
 	c.Header("Content-Type", "application/json")
 
-	c.JSON(http.StatusOK, repositories)
+	c.JSON(http.StatusOK, trimmedRepositories)
 }
