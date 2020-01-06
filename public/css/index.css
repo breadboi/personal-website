@@ -5,17 +5,8 @@
 /* 304d6d */
 /* 82a0bc */
 
-@media only screen and (max-width: 700px) {
-  .mobile-size-card {
-    height: 300px;
-    width: 300px !important;
-    margin-bottom: 15px;
-    margin-left: 9% !important;
-    margin-right: 5% !important;
-  }
-}
-
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -56,9 +47,9 @@ html, body {
 
 .project-card {
   height: 300px;
-  width: 500px;
+  width: 90%;
   margin-bottom: 15px;
-  margin-left: 15px;
+  margin-left: 5%;
 }
 
 body {
@@ -66,7 +57,7 @@ body {
 }
 
 a {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 a:hover {
@@ -77,11 +68,13 @@ a.white {
   color: #FFF;
 }
 
-.btn i.zmdi{
+.btn i.zmdi {
   margin-right: 3px;
 }
 
-i.fa, a, a:hover {
+i.fa,
+a,
+a:hover {
   color: #82a0bc;
 }
 
