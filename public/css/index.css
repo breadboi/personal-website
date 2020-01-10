@@ -25,6 +25,11 @@ body {
   margin-bottom: 20px;
 }
 
+.section-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .skills-section {
   background-color: #82a0bc;
   margin-top: 20px;
