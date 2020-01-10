@@ -22,21 +22,25 @@ class Projects extends React.Component {
 
     render() {
         return (
-            <div className="grid grid-pad projects-section">
+            <div className="projects-section">
+                <div className="grid grid-pad">
 
-                <div className="row text-center">
-                    <div className="col">
-                        <h2>Projects</h2>
-                        <p>Here are my most recent projects.</p>
+                    <div className="row text-center projects-header">
+                        <div className="col-12 section-header">
+                            <h2>Projects</h2>
+                            <p>These are the most recent projects I've made commits to.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div className="row">
-                    {this.state.projects.map(function (project, i) {
-                        return <Project key={i} project={project} />;
-                    })}
+                    <div className="row">
+                        {this.state.projects.map(function (project, i) {
+                            return <Project key={i} project={project} />;
+                        })}
+                    </div>
+
                 </div>
             </div>
+
         );
     }
 }
@@ -48,11 +52,11 @@ class Project extends React.Component {
 
     render() {
         return (
-            <div className="col">
-                <div className="card project-card">
+            <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div className="card project-card shadow">
                     <div className="card-body">
                         <h4 className="card-title">{this.props.project.FullName}</h4>
-                        <p className="card-text">{this.props.project.Description}</p>                        
+                        <p className="card-text">{this.props.project.Description}</p>
                     </div>
                     <a href={"https://github.com/" + this.props.project.FullName} target="_blank" className="btn stretched-link">See Source</a>
                 </div>

@@ -4,7 +4,7 @@ class Header extends React.Component {
       <div className="grid grid-pad">
 
         <div className="row text-center">
-          <img src="assets/me.png" alt="Avatar" className="circular" />
+          <img src="assets/ProfPhoto300x300.png" alt="Avatar" className="circular shadow-lg" />
         </div>
 
         <div className="row text-center">
