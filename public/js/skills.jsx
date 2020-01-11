@@ -54,7 +54,8 @@ class Skills extends React.Component
                                         <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Git</li>
                                         <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Github and TFVC</li>
                                         <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Agile Development</li>
-                                        <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Visual Studio/Code</li>
+                                        <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Visual Studio 2019</li>
+                                        <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>VS Code</li>
                                         <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Linux Varients</li>
                                     </ul>
                                 </div>
