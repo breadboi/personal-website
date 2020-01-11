@@ -27,8 +27,7 @@ class Projects extends React.Component {
 
                     <div className="row text-center projects-header">
                         <div className="col-12 section-header">
-                            <h2>Projects</h2>
-                            <p>These are the most recent projects I've made commits to.</p>
+                            <h2>Recent Work</h2>
                         </div>
                     </div>
 

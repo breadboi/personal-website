@@ -27,23 +27,27 @@ body {
 }
 
 .section-header {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .skills-section {
   background-color: #82a0bc;
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .skills-row {
   margin-left: 1%;
   margin-right: 1%;
+  margin-bottom: 50px;
 }
 
 .projects-section {
   background-color: #304d6d;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .projects-header {
@@ -53,12 +57,14 @@ body {
 .project-card {
   height: 325px;
   width: 90%;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
   margin-left: 5%;
 }
 
 .links-section {
   background-color: #82a0bc;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .links-section-a {
@@ -69,9 +75,6 @@ body {
 @media only screen and (max-width: 600px) {
   .link-section-icon {
     color: white;
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
     background-color: #304d6d;
     border-radius: 10px;
     font-size: 20vw !important;
@@ -81,10 +84,6 @@ body {
 
 .link-section-icon {
   color: white;
-  margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10%;
   background-color: #304d6d;
   border-radius: 10px;
   font-size: 10vw !important;
@@ -93,10 +92,6 @@ body {
 
 .link-section-icon:hover {
   color: #304d6d;
-  margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10%;
   background-color: white;
   border-radius: 10px;
   font-size: 10vw !important;
@@ -106,10 +101,6 @@ body {
 
 .link-section-icon:active {
   color: #304d6d;
-  margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10%;
   background-color: white;
   border-radius: 10px;
   font-size: 10vw !important;
