@@ -51,7 +51,7 @@ body {
 }
 
 .project-card {
-  height: 300px;
+  height: 325px;
   width: 90%;
   margin-bottom: 15px;
   margin-left: 5%;
@@ -61,10 +61,15 @@ body {
   background-color: #82a0bc;
 }
 
+.links-section-a {
+  outline: none;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 600px) {
   .link-section-icon {
     color: white;
-    margin-top: 2%;
+    margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
     background-color: #304d6d;
@@ -84,6 +89,32 @@ body {
   border-radius: 10px;
   font-size: 10vw !important;
   width: 50%;
+}
+
+.link-section-icon:hover {
+  color: #304d6d;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 10vw !important;
+  width: 50%;
+  transition: background-color 0.5s ease-out;
+}
+
+.link-section-icon:active {
+  color: #304d6d;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 10vw !important;
+  width: 50%;
+  transition: background-color 0.5s ease-out;
 }
 
 body {
