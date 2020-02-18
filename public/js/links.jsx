@@ -13,11 +13,11 @@ class Links extends React.Component
                         </div>
 
                         <div class="col">
-                            <a href="mailto:bcarney1@niu.edu" target="_blank" class="links-section-a" onDragStart={(e) => { e.preventDefault() }}><i class="link-section-icon shadow-lg zmdi zmdi-email"></i></a>
+                            <a href="mailto:brett@brettcarney.com" target="_blank" class="links-section-a" onDragStart={(e) => { e.preventDefault() }}><i class="link-section-icon shadow-lg zmdi zmdi-email"></i></a>
                         </div>
 
                         <div class="col">
-                            <a href="https://www.linkedin.com/" target="_blank" class="links-section-a" onDragStart={(e) => { e.preventDefault() }}><i class="link-section-icon shadow-lg zmdi zmdi-linkedin-box"></i></a>
+                            <a href="https://www.linkedin.com/in/brett-colin-carney/" target="_blank" class="links-section-a" onDragStart={(e) => { e.preventDefault() }}><i class="link-section-icon shadow-lg zmdi zmdi-linkedin-box"></i></a>
                         </div>
 
                     </div>

@@ -8,9 +8,10 @@ import (
 )
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	router := setupRouter()
 	// Listen and Server in localhost:8080
-	router.Run(":8080")
+	router.Run(":80")
 }
 
 // Function that returns a pointer to a gin Engine
