@@ -1,3 +1,12 @@
+/**
+ * @file main.go
+ * @author Brett Carney (brettcarney.com)
+ * @brief Main entrypoint and router
+ * @version 1.0
+ * @date 2020-02-19
+ *
+ */
+
 package main
 
 import (
@@ -8,15 +17,26 @@ import (
 )
 
 func main() {
+
+	config := LoadConfiguration("config.json")
+
+	gin.SetMode(config.Mode)
+
 	router := setupRouter()
-	// Listen and Server in localhost:8080
-	router.Run(":8080")
+
+	// Listen and Serve
+	router.Run(config.Port)
 }
 
-// Function that returns a pointer to a gin Engine
+/**
+ * @brief Gin router setup for github api and our
+ * public static files
+ */
 func setupRouter() *gin.Engine {
+
 	// Disable Console Color
 	// gin.DisableConsoleColor()
+
 	router := gin.Default()
 
 	// Serve frontend static files
@@ -35,7 +55,14 @@ func setupRouter() *gin.Engine {
 	return router
 }
 
+/**
+ * @brief GET handler for our github api
+ * functionality.
+ *
+ * @param *gin.Context Pipe Golang gin context
+ */
 func GithubHandler(c *gin.Context) {
+
 	repositories := GetRecentRepos()
 
 	// Only display the most recent six repositories
