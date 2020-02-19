@@ -11,7 +11,8 @@ import (
 )
 
 type Repo struct {
-	FullName      string
+	Name          string
+	FullName	  string
 	Description   string
 	StarsCount    int
 	ForksCount    int
@@ -21,10 +22,17 @@ type Repo struct {
 
 // Get my repos
 func GetRepos() []Repo {
+	
+	config := LoadConfiguration("config.json")
+
+	github_token := config.Github_Secrets.Personal_Read
+
 	context := context.Background()
+
 	tokenService := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: "5662af414edb4e381124b71b96d6f808fa944287"},
+		&oauth2.Token{AccessToken: github_token},
 	)
+
 	tokenClient := oauth2.NewClient(context, tokenService)
 
 	client := github.NewClient(tokenClient)
@@ -47,7 +55,8 @@ func GetRepos() []Repo {
 		// Check if we have nil values for the name or description strings
 		if element.FullName != nil && element.Description != nil {
 			pack := Repo{
-				FullName:    *element.FullName,
+				Name:   	 *element.Name,
+				FullName: 	 *element.FullName,
 				Description: *element.Description,
 				ForksCount:  *element.ForksCount,
 				StarsCount:  *element.StargazersCount,
@@ -64,10 +73,17 @@ func GetRepos() []Repo {
 
 // Get my most recent repos
 func GetRecentRepos() []Repo {
+
+	config := LoadConfiguration("config.json")
+
+	github_token := config.Github_Secrets.Personal_Read
+
 	context := context.Background()
+
 	tokenService := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: "5662af414edb4e381124b71b96d6f808fa944287"},
+		&oauth2.Token{AccessToken: github_token},
 	)
+
 	tokenClient := oauth2.NewClient(context, tokenService)
 
 	client := github.NewClient(tokenClient)
@@ -88,7 +104,8 @@ func GetRecentRepos() []Repo {
 		// Check if we have nil values for the name or description strings
 		if element.FullName != nil && element.Description != nil {
 			pack := Repo{
-				FullName:    *element.FullName,
+				Name:    	 *element.Name,
+				FullName: 	 *element.FullName,
 				Description: *element.Description,
 				ForksCount:  *element.ForksCount,
 				StarsCount:  *element.StargazersCount,

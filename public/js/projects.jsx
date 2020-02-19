@@ -54,7 +54,7 @@ class Project extends React.Component {
             <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div className="card project-card shadow">
                     <div className="card-body">
-                        <h4 className="card-title">{this.props.project.FullName}</h4>
+                        <h4 className="card-title">{this.props.project.Name}</h4>
                         <p className="card-text">{this.props.project.Description}</p>
                     </div>
                     <a href={"https://github.com/" + this.props.project.FullName} target="_blank" className="btn stretched-link">See Source</a>

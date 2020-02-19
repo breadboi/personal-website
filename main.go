@@ -8,16 +8,23 @@ import (
 )
 
 func main() {
-	gin.SetMode(gin.ReleaseMode)
+
+	config := LoadConfiguration("config.json")
+
+	gin.SetMode(config.Mode)
+
 	router := setupRouter()
-	// Listen and Server in localhost:8080
-	router.Run(":80")
+
+	// Listen and Serve
+	router.Run(config.Port)
 }
 
 // Function that returns a pointer to a gin Engine
 func setupRouter() *gin.Engine {
+
 	// Disable Console Color
 	// gin.DisableConsoleColor()
+
 	router := gin.Default()
 
 	// Serve frontend static files
@@ -37,6 +44,7 @@ func setupRouter() *gin.Engine {
 }
 
 func GithubHandler(c *gin.Context) {
+
 	repositories := GetRecentRepos()
 
 	// Only display the most recent six repositories
