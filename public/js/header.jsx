@@ -1,3 +1,12 @@
+/**
+ * @file header.jsx
+ * @author Brett Carney (brettcarney.com)
+ * @brief Header for the main landing page
+ * @version 1.0
+ * @date 2020-02-19
+ * 
+ */
+
 class Header extends React.Component {
   render() {
     return (

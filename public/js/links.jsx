@@ -1,3 +1,12 @@
+/**
+ * @file links.jsx
+ * @author Brett Carney (brettcarney.com)
+ * @brief Links footer for the main landing page
+ * @version 1.0
+ * @date 2020-02-19
+ * 
+ */
+
 class Links extends React.Component
 {
     render()

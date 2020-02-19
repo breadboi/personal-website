@@ -1,3 +1,13 @@
+/**
+ * @file skills.jsx
+ * @author Brett Carney (brettcarney.com)
+ * @brief Represents the skills section of the main landing page
+ * 
+ * @version 1.0
+ * @date 2020-02-19
+ * 
+ */
+
 class Skills extends React.Component
 {
     render()

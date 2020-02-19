@@ -1,3 +1,20 @@
+/**
+ * @file projects.jsx
+ * @author Brett Carney (brettcarney.com)
+ * @brief Contains two classes that handle the dynamic population of bootstrap
+ * cards onto the project section of the main landing page.
+ * 
+ * @version 1.0
+ * @date 2020-02-19
+ * 
+ */
+
+
+ /**
+  * @brief Represents the entire projects section and
+  * utilizes the map function to display the most recent
+  * projects. The github info is obtained from our api.
+  */
 class Projects extends React.Component {
     constructor(props) {
         super(props);
@@ -44,6 +61,11 @@ class Projects extends React.Component {
     }
 }
 
+ /**
+  * @brief Represents a single project in the projects section and
+  * utilizes the map function to display the most recent
+  * projects.
+  */
 class Project extends React.Component {
     constructor(props) {
         super(props);
