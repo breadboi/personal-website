@@ -1,3 +1,12 @@
+/**
+ * @file main.go
+ * @author Brett Carney (brettcarney.com)
+ * @brief Main entrypoint and router
+ * @version 1.0
+ * @date 2020-02-19
+ *
+ */
+
 package main
 
 import (
@@ -19,7 +28,10 @@ func main() {
 	router.Run(config.Port)
 }
 
-// Function that returns a pointer to a gin Engine
+/**
+ * @brief Gin router setup for github api and our
+ * public static files
+ */
 func setupRouter() *gin.Engine {
 
 	// Disable Console Color
@@ -43,6 +55,12 @@ func setupRouter() *gin.Engine {
 	return router
 }
 
+/**
+ * @brief GET handler for our github api
+ * functionality.
+ *
+ * @param *gin.Context Pipe Golang gin context
+ */
 func GithubHandler(c *gin.Context) {
 
 	repositories := GetRecentRepos()

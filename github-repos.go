@@ -1,3 +1,12 @@
+/**
+ * @file main.go
+ * @author Brett Carney (brettcarney.com)
+ * @brief Handles communication with github api
+ * @version 1.0
+ * @date 2020-02-19
+ *
+ */
+
 package main
 
 import (
@@ -10,6 +19,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
+// Represents a single GitHub repository
 type Repo struct {
 	Name          string
 	FullName	  string
@@ -20,7 +30,11 @@ type Repo struct {
 	UpdatedAt     github.Timestamp
 }
 
-// Get my repos
+/**
+ * @brief Using the api key retrieved from
+ * the config file, request my repositories in no
+ * specific order.
+ */
 func GetRepos() []Repo {
 	
 	config := LoadConfiguration("config.json")
@@ -40,6 +54,7 @@ func GetRepos() []Repo {
 	// list all repositories for the authenticated user
 	repos, _, err := client.Repositories.List(context, "", nil)
 
+	// Handle nil case
 	if err != nil {
 		fmt.Printf("Problem in getting repository information %v\n", err)
 		os.Exit(1)
@@ -48,8 +63,10 @@ func GetRepos() []Repo {
 	// Create empty list
 	repositories := []Repo{}
 
-	//var pack Repo
-
+	/*
+	 * Iterate through repositories where the name and desc. are not nil
+	 * and append to our repository list.
+	 */
 	for _, element := range repos {
 
 		// Check if we have nil values for the name or description strings
@@ -71,7 +88,11 @@ func GetRepos() []Repo {
 	return repositories
 }
 
-// Get my most recent repos
+/**
+ * @brief Using the api key retrieved from
+ * the config file, request my repositories in order
+ * of most recently committed to least recently committed.
+ */
 func GetRecentRepos() []Repo {
 
 	config := LoadConfiguration("config.json")
@@ -91,6 +112,7 @@ func GetRecentRepos() []Repo {
 	// list all repositories for the authenticated user
 	repos, _, err := client.Repositories.List(context, "", nil)
 
+	// Handle our nil case
 	if err != nil {
 		fmt.Printf("Problem in getting repository information %v\n", err)
 		os.Exit(1)
@@ -99,6 +121,10 @@ func GetRecentRepos() []Repo {
 	// Create empty list
 	repositories := []Repo{}
 
+	/*
+	 * Iterate through repositories where the name and desc. are not nil
+	 * and append to our repository list.
+	 */
 	for _, element := range repos {
 
 		// Check if we have nil values for the name or description strings
@@ -118,6 +144,7 @@ func GetRecentRepos() []Repo {
 
 	}
 
+	// Sort our repositories by time updated
 	sort.SliceStable(repositories, func(i, j int) bool {
 		return repositories[i].UpdatedAt.After(repositories[j].UpdatedAt.Time)
 	})

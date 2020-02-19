@@ -1,3 +1,12 @@
+/**
+ * @file main.go
+ * @author Brett Carney (brettcarney.com)
+ * @brief Interfaces with website config file
+ * @version 1.0
+ * @date 2020-02-19
+ *
+ */
+
 package main
 
 import (
@@ -6,6 +15,7 @@ import (
 	"os"
 )
 
+// Represents our config file
 type Config struct {
 	Github_Secrets struct {
 		Personal_Read string `json:"personal-read"`
@@ -14,6 +24,12 @@ type Config struct {
 	Mode string `json:"mode"`
 }
 
+/**
+ * @brief Handles reading our config file and returning
+ * a Config object that represents the file's contents.
+ * 
+ * @param file Represents the filepath to config.json
+ */
 func LoadConfiguration(file string) Config {
 	var config Config
 
