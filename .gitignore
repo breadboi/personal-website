@@ -1,1 +1,4 @@
 config.json
+public/js/*
+public/vendor/*
+node_modules
