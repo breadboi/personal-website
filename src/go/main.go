@@ -52,6 +52,8 @@ func setupRouter() *gin.Engine {
 		api.GET("/github", GithubHandler)
 	}
 
+	router.Use(static.Serve("/birthday", static.LocalFile("./happy-birthday", true)))
+
 	return router
 }
 
