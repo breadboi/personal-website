@@ -15,21 +15,16 @@ import (
 	"os"
 )
 
-// Represents our config file
+// Config Represents the config file structure
 type Config struct {
-	Github_Secrets struct {
-		Personal_Read string `json:"personal-read"`
+	GithubSecrets struct {
+		PersonalRead string `json:"personal-read"`
 	} `json:"github-secrets"`
 	Port string `json:"port"`
 	Mode string `json:"mode"`
 }
 
-/**
- * @brief Handles reading our config file and returning
- * a Config object that represents the file's contents.
- * 
- * @param file Represents the filepath to config.json
- */
+// LoadConfiguration Loads config file for gin
 func LoadConfiguration(file string) Config {
 	var config Config
 
