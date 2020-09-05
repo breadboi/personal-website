@@ -19,7 +19,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-// Represents a single GitHub repository
+// Repo Represents a single GitHub repository
 type Repo struct {
 	Name          string
 	FullName	  string
@@ -30,21 +30,17 @@ type Repo struct {
 	UpdatedAt     github.Timestamp
 }
 
-/**
- * @brief Using the api key retrieved from
- * the config file, request my repositories in no
- * specific order.
- */
+// GetRepos Request repos in no specific order
 func GetRepos() []Repo {
 	
 	config := LoadConfiguration("config.json")
 
-	github_token := config.Github_Secrets.Personal_Read
+	githubToken := config.GithubSecrets.PersonalRead
 
 	context := context.Background()
 
 	tokenService := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: github_token},
+		&oauth2.Token{AccessToken: githubToken},
 	)
 
 	tokenClient := oauth2.NewClient(context, tokenService)
@@ -88,21 +84,17 @@ func GetRepos() []Repo {
 	return repositories
 }
 
-/**
- * @brief Using the api key retrieved from
- * the config file, request my repositories in order
- * of most recently committed to least recently committed.
- */
+// GetRecentRepos Gets the repos in order of most recently committed to least recent
 func GetRecentRepos() []Repo {
 
 	config := LoadConfiguration("config.json")
 
-	github_token := config.Github_Secrets.Personal_Read
+	githubToken := config.GithubSecrets.PersonalRead
 
 	context := context.Background()
 
 	tokenService := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: github_token},
+		&oauth2.Token{AccessToken: githubToken},
 	)
 
 	tokenClient := oauth2.NewClient(context, tokenService)
