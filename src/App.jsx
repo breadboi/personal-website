@@ -1,5 +1,4 @@
-import { Header } from './jsx/Header'
-import { Links } from './jsx/Links';
+import { Header } from './jsx/Header';
 import { Skills } from './jsx/Skills';
 import { Projects } from './jsx/Projects';
 import { useState } from 'react'
@@ -10,13 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header     />
-
-      <Skills     />
-
-      <Projects   />
-
-      <Links   e={e}  />
+      <Header />
+      <Skills />
+      <Projects />
     </div>
   )
 }

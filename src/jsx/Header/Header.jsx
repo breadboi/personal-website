@@ -1,31 +1,22 @@
 import React from "react";
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import { Button } from "@mui/material";
+import myAvatar from '../../../assets/ProfPhoto300x300.png';
 
 export function Header({ }) {
-  return (<div className="grid grid-pad">
-
-    <div className="row text-center">
-      <img src="assets/ProfPhoto300x300.png" alt="Avatar" className="circular shadow-lg" />
-    </div>
-
-    <div className="row text-center">
-      <div className="col">
-        <h1>Brett Carney</h1>
-      </div>
-    </div>
-
-    <div className="row text-center">
-      <div className="col">
-        <h2>Software Developer</h2>
-      </div>
-    </div>
-
-    <div className="row text-center">
-      <div className="col">
-        <a href="assets/Resume_BrettCarney.PDF" target="_blank" class="btn btn-lg" title="View Resumé">
-          <i class="zmdi zmdi-file"></i> Resumé
-        </a>
-      </div>
-    </div>
-  </div>);
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <Avatar
+        alt="Brett Carney"
+        src={myAvatar}
+        sx={{ width: 300, height: 300 }}
+      />
+      <h1>Brett Carney</h1>
+      <h2>Software Engineer</h2>
+      <Button variant="outlined" href='../../../assets/Resume_BrettCarney.PDF'>
+        Resume
+      </Button>
+    </Box>
+  );
 }
-

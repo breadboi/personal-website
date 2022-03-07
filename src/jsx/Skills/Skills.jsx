@@ -1,65 +1,59 @@
 import React from "react";
+
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+
+const languagesList = ["C#", "Java", "JavaScript", "Golang", "Python", "SQL"];
+const frameworksList = ["React", "ASP.NET", "Angular", "Bootstrap", "Material-UI"];
+const otherList = ["Docker", "CICD Pipelines", "Agile Development", "Cloud Deployment", "Linux Varients"];
+
 export function Skills({ }) {
-    return <div className="skills-section">
-        <div className="gird grid-pad">
+    return (
+        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <ul>
+                            {languagesList.map(function (language, i) {
+                                return (
+                                    <li key={'language'+i}>{language}</li>
+                                )
+                            })}
+                        </ul>
+                    </Typography>
+                </CardContent>
+            </Card>
 
-            <div className="row text-center">
-                <div className="col section-header">
-                    <h2>Highlighted Skills</h2>
-                </div>
-            </div>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <ul>
+                            {frameworksList.map(function (framework, i) {
+                                return (
+                                    <li key={'framework'+i}>{framework}</li>
+                                )
+                            })}
+                        </ul>
+                    </Typography>
+                </CardContent>
+            </Card>
 
-            <div className="row skills-row">
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <ul>
+                            {otherList.map(function (other, i) {
+                                return (
+                                    <li key={'other'+i}>{other}</li>
+                                )
+                            })}
+                        </ul>
+                    </Typography>
+                </CardContent>
+            </Card>
 
-                <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div className="card project-card shadow">
-                        <div className="card-body">
-                            <h4 className="card-title">Languages</h4>
-                            <ul className="col card-text zmdi-hc-ul">
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>C#</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Golang</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>PHP</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Java</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>C++</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Python</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div className="card project-card shadow">
-                        <div className="card-body">
-                            <h4 className="card-title">Frameworks and Libraries</h4>
-                            <ul className="col zmdi-hc-ul">
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>React</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Jquery</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>ASP.NET</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Gin</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Bootstrap</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div className="card project-card shadow">
-                        <div className="card-body">
-                            <h4 className="card-title">Other Technologies and Skills</h4>
-                            <ul className="col zmdi-hc-ul">
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Git</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Github and TFVC</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Agile Development</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Visual Studio 2019</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>VS Code</li>
-                                <li><i class="zmdi-hc-li zmdi zmdi-dot-circle-alt"></i>Linux Varients</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>;
+        </Box>
+    );
 }
