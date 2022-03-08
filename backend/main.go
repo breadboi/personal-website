@@ -20,7 +20,7 @@ import (
 
 func main() {
 
-	config := utility.LoadConfiguration("config.json")
+	config := utility.LoadConfiguration("./configs/config.json")
 
 	gin.SetMode(config.Mode)
 
