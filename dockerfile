@@ -17,4 +17,8 @@ EXPOSE 443/tcp
 
 EXPOSE 443/udp
 
+EXPOSE 80/tcp
+
+EXPOSE 80/udp
+
 CMD ./portfolio-backend
