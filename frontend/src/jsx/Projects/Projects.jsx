@@ -23,18 +23,18 @@ export function Projects({ }) {
 
 const Project = props => {
     return (
-        <Card sx={{ minWidth: 275, maxWidth: 275 }}>
+        <Card sx={{ minWidth: 275, maxWidth: 275, m: 2 }}>
             <CardContent>
                 <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     <h4 className="card-title">{props.project.Name}</h4>
                     <p className="card-text">{props.project.Description}</p>
                 </Typography>
-                <CardActions>
-                    <Button variant="outlined" href={"https://github.com/" + props.project.FullName} target="_blank">
-                        See Source
-                    </Button>
-                </CardActions>
             </CardContent>
+            <CardActions>
+                <Button variant="outlined" href={"https://github.com/" + props.project.FullName} target="_blank">
+                    See Source
+                </Button>
+            </CardActions>
         </Card>
     );
 };

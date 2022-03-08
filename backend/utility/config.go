@@ -7,7 +7,7 @@
  *
  */
 
-package main
+package utility
 
 import (
 	"encoding/json"
@@ -20,8 +20,10 @@ type Config struct {
 	GithubSecrets struct {
 		PersonalRead string `json:"personal-read"`
 	} `json:"github-secrets"`
-	Port string `json:"port"`
-	Mode string `json:"mode"`
+	Port           string `json:"port"`
+	Mode           string `json:"mode"`
+	Certificate    string `json:"certificate"`
+	CertificateKey string `json:"certificate-key"`
 }
 
 // LoadConfiguration Loads config file for gin

@@ -7,7 +7,7 @@
  *
  */
 
-package main
+package utility
 
 import (
 	"context"
@@ -22,7 +22,7 @@ import (
 // Repo Represents a single GitHub repository
 type Repo struct {
 	Name          string
-	FullName	  string
+	FullName      string
 	Description   string
 	StarsCount    int
 	ForksCount    int
@@ -32,7 +32,7 @@ type Repo struct {
 
 // GetRepos Request repos in no specific order
 func GetRepos() []Repo {
-	
+
 	config := LoadConfiguration("config.json")
 
 	githubToken := config.GithubSecrets.PersonalRead
@@ -68,8 +68,8 @@ func GetRepos() []Repo {
 		// Check if we have nil values for the name or description strings
 		if element.FullName != nil && element.Description != nil {
 			pack := Repo{
-				Name:   	 *element.Name,
-				FullName: 	 *element.FullName,
+				Name:        *element.Name,
+				FullName:    *element.FullName,
 				Description: *element.Description,
 				ForksCount:  *element.ForksCount,
 				StarsCount:  *element.StargazersCount,
@@ -122,8 +122,8 @@ func GetRecentRepos() []Repo {
 		// Check if we have nil values for the name or description strings
 		if element.FullName != nil && element.Description != nil {
 			pack := Repo{
-				Name:    	 *element.Name,
-				FullName: 	 *element.FullName,
+				Name:        *element.Name,
+				FullName:    *element.FullName,
 				Description: *element.Description,
 				ForksCount:  *element.ForksCount,
 				StarsCount:  *element.StargazersCount,

@@ -12,20 +12,26 @@ package main
 import (
 	"net/http"
 
+	"brettcarney.com/utility"
+
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 
-	config := LoadConfiguration("config.json")
+	config := utility.LoadConfiguration("config.json")
 
 	gin.SetMode(config.Mode)
 
 	router := setupRouter()
 
 	// Listen and Serve
-	router.Run(config.Port)
+	if config.Certificate != "" && config.CertificateKey != "" {
+		router.RunTLS(config.Port, config.Certificate, config.CertificateKey)
+	} else {
+		router.Run(config.Port)
+	}
 }
 
 /**
@@ -63,7 +69,7 @@ func setupRouter() *gin.Engine {
  */
 func GithubHandler(c *gin.Context) {
 
-	repositories := GetRecentRepos()
+	repositories := utility.GetRecentRepos()
 
 	// Only display the most recent six repositories
 	trimmedRepositories := append(repositories[:6])

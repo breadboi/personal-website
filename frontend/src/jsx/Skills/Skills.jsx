@@ -11,9 +11,10 @@ const otherList = ["Docker", "CICD Pipelines", "Agile Development", "Cloud Deplo
 
 export function Skills({ }) {
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-            <Card sx={{ minWidth: 275 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+            <Card sx={{ minWidth: 275, maxWidth: 275, m: 2 }}>
                 <CardContent>
+                    <h3>Languages</h3>
                     <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         <ul>
                             {languagesList.map(function (language, i) {
@@ -26,8 +27,9 @@ export function Skills({ }) {
                 </CardContent>
             </Card>
 
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ minWidth: 275, maxWidth: 275, m: 2 }}>
                 <CardContent>
+                    <h3>Frameworks</h3>
                     <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         <ul>
                             {frameworksList.map(function (framework, i) {
@@ -40,8 +42,9 @@ export function Skills({ }) {
                 </CardContent>
             </Card>
 
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ minWidth: 275, maxWidth: 275, m: 2 }}>
                 <CardContent>
+                    <h3>Other Skills</h3>
                     <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                         <ul>
                             {otherList.map(function (other, i) {

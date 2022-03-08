@@ -1,0 +1,32 @@
+/*353535*/
+/*3c6e71*/
+/*ffffff*/
+/*d9d9d9*/
+/*284b63*/
+
+body {
+    background-color: #d9d9d9;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* Skills */
+.skills-section {
+    background-color: #304d6d;
+}
+
+.skills-section > h1 {
+    color: #ffffff;
+}
+
+/* Projects */
+.projects-section {
+    background-color: #353535;
+}
+
+.projects-section > h1 {
+    color: #ffffff;
+    margin-top: 0;
+}
