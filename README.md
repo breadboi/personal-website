@@ -1,6 +1,6 @@
 # Personal Website
 
-Website created with the intent of learning new technologies.
+Website created with the intent of learning new technologies and serving as my personal portfolio.
 
 ## Requirements
 
@@ -13,7 +13,7 @@ Website created with the intent of learning new technologies.
 {
   "github-secrets": {
         "personal-read": "github-token"
-    }
+    },
   "port" : <port>,
   "mode" : <debug/release>
 }
@@ -21,10 +21,13 @@ Website created with the intent of learning new technologies.
 
 ## Startup
 
+### Start Frontend
 ```bash
-> npm install
-> npx gulp build-release
-> go run *.go
+npm run dev
+```
+### Build and Run Backend
+```bash
+cd Backend ; go build ./... ; ./portfolio-backend
 ```
 
 ## Contributing
