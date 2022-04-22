@@ -1,10 +1,9 @@
 name: Remove Development Docker Images
-on:
-  pull_request:
-    types: [ closed ]
-    
+on: delete
+
 jobs:    
   purge-image:
+    if: github.event.ref_type == 'branch'
     name: Delete image from ghcr.io
     runs-on: ubuntu-latest
     steps:
