@@ -11,11 +11,17 @@ jobs:
         shell: bash
         run: echo "BRANCH_NAME=$(echo ${{ github.event.ref }} | tr / -)" >> $GITHUB_ENV
       - name: Delete image
-        uses: bots-house/ghcr-delete-image-action@v1.0.0
-        with:
-        # NOTE: at now only orgs is supported
-          owner: breadboi
-          name: rm-old-image
-        # NOTE: using Personal Access Token
+        uses: actions/delete-package-versions@v3
+        with: 
+          owner: 'breadboi'
+          repo: 'personal-website'
+          package-name: 'personal-website:${{ env.BRANCH_NAME }}'
           token: ${{ secrets.DOCKERDEL }}
-          tag: ${{ env.BRANCH_NAME }}
+#         uses: bots-house/ghcr-delete-image-action@v1.0.0
+#         with:
+#         # NOTE: at now only orgs is supported
+#           owner: breadboi
+#           name: rm-old-image
+#         # NOTE: using Personal Access Token
+#           token: ${{ secrets.DOCKERDEL }}
+#           tag: ${{ env.BRANCH_NAME }}
