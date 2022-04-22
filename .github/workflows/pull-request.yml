@@ -1,4 +1,4 @@
-name: Run tests
+name: Create Development Docker Images
 
 on: [pull_request]
 
