@@ -9,12 +9,12 @@ COPY . /app/
 
 RUN apt-get update && apt-get install -y nodejs npm
 
-RUN cd frontend ; npm install ; npm run build ; cp -r dist/ ../dist
+RUN cd frontend ; npm install ; npm run build ; cp -r dist/ /app/dist
 
-RUN cd backend ; go get ./... ; go build ./... ; cp portfolio-backend ../
+RUN cd backend ; go get ./... ; go build ./... ; cp portfolio-backend /app/
 
-EXPOSE 443/tcp
+EXPOSE 80/tcp
 
-EXPOSE 443/udp
+EXPOSE 80/udp
 
 CMD ./portfolio-backend
