@@ -20,11 +20,11 @@ import (
 
 func main() {
 
-	config := utility.LoadConfiguration("./configs/config.json")
+	config := utility.LoadConfiguration("configs/config.json")
 
 	gin.SetMode(config.Mode)
 
-	router := setupRouter()
+	router := SetupRouter()
 
 	// Listen and Serve
 	if config.Certificate != "" && config.CertificateKey != "" {
@@ -38,7 +38,7 @@ func main() {
  * @brief Gin router setup for github api and our
  * public static files
  */
-func setupRouter() *gin.Engine {
+func SetupRouter() *gin.Engine {
 
 	// Disable Console Color
 	// gin.DisableConsoleColor()
@@ -46,7 +46,7 @@ func setupRouter() *gin.Engine {
 	router := gin.Default()
 
 	// Serve frontend static files
-	router.Use(static.Serve("/", static.LocalFile("./dist", true)))
+	router.Use(static.Serve("/", static.LocalFile("dist", true)))
 
 	api := router.Group("/api")
 	{

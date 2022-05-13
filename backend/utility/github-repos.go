@@ -33,7 +33,7 @@ type Repo struct {
 // GetRepos Request repos in no specific order
 func GetRepos() []Repo {
 
-	config := LoadConfiguration("./configs/config.json")
+	config := LoadConfiguration("configs/config.json")
 
 	githubToken := config.GithubSecrets.PersonalRead
 
@@ -87,7 +87,7 @@ func GetRepos() []Repo {
 // GetRecentRepos Gets the repos in order of most recently committed to least recent
 func GetRecentRepos() []Repo {
 
-	config := LoadConfiguration("./configs/config.json")
+	config := LoadConfiguration("configs/config.json")
 
 	githubToken := config.GithubSecrets.PersonalRead
 
