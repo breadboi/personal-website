@@ -2,7 +2,7 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import { Button } from "@mui/material";
-import myResume from '../../../assets/Resume_BrettCarney_2021.pdf'
+import myResume from '../../../assets/Resume_BrettCarney_2022.pdf'
 
 export function Header({ }) {
   return (
