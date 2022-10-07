@@ -55,7 +55,8 @@ func SetupRouter() *gin.Engine {
 				"message": "pong",
 			})
 		})
-		api.GET("/github", GithubHandler)
+		api.GET("/github", GitHubHandler)
+		api.GET("/github/languages", GitHubLanguageHandler)
 	}
 
 	return router
@@ -67,7 +68,7 @@ func SetupRouter() *gin.Engine {
  *
  * @param *gin.Context Pipe Golang gin context
  */
-func GithubHandler(c *gin.Context) {
+func GitHubHandler(c *gin.Context) {
 
 	repositories := utility.GetRecentRepos()
 
@@ -77,4 +78,12 @@ func GithubHandler(c *gin.Context) {
 	c.Header("Content-Type", "application/json")
 
 	c.JSON(http.StatusOK, trimmedRepositories)
+}
+
+func GitHubLanguageHandler(c *gin.Context) {
+	languages := utility.GetLanguageColors()
+
+	c.Header("Content-Type", "application/json")
+
+	c.JSON(http.StatusOK, languages)
 }
