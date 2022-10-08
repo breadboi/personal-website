@@ -11,9 +11,13 @@ package utility
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"os"
 	"sort"
+	"strings"
 
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
@@ -28,6 +32,7 @@ type Repo struct {
 	ForksCount    int
 	LastUpdatedBy string
 	UpdatedAt     github.Timestamp
+	Languages     map[string]float64
 }
 
 // GetRepos Request repos in no specific order
@@ -121,6 +126,20 @@ func GetRecentRepos() []Repo {
 
 		// Check if we have nil values for the name or description strings
 		if element.FullName != nil && element.Description != nil {
+			ownerRepoSplit := strings.Split(*element.FullName, "/")
+			languages, _, _ := client.Repositories.ListLanguages(context, ownerRepoSplit[0], ownerRepoSplit[1])
+
+			// Convert bytes to percentages
+			sum := 0
+			for _, languageAmount := range languages {
+				sum += languageAmount
+			}
+
+			var languagePercentages = make(map[string]float64)
+			for languageString, languageAmount := range languages {
+				languagePercentages[languageString] = float64(languageAmount*1.0) / float64(sum) * 100.0
+			}
+
 			pack := Repo{
 				Name:        *element.Name,
 				FullName:    *element.FullName,
@@ -128,6 +147,7 @@ func GetRecentRepos() []Repo {
 				ForksCount:  *element.ForksCount,
 				StarsCount:  *element.StargazersCount,
 				UpdatedAt:   *element.UpdatedAt,
+				Languages:   languagePercentages,
 			}
 
 			// Append to our repositories list
@@ -142,4 +162,22 @@ func GetRecentRepos() []Repo {
 	})
 
 	return repositories
+}
+
+func GetLanguageColors() map[string]string {
+	url := "https://raw.githubusercontent.com/doda-zz/github-language-colors/master/colors.json"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	// result, _ := json.Marshal(body)
+
+	colors := make(map[string]string)
+	json.Unmarshal(body, &colors)
+
+	return colors
 }
