@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from "react";
 import { BreakdownBar } from "../BreakdownBar/BreakdownBar";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const styles = {
     card: {
@@ -18,6 +19,9 @@ const styles = {
         // Justify the content so that CardContent will always be at the top of the card,
         // and CardActions will be at the bottom
         justifyContent: "space-between"
+    },
+    githubButton: {
+        backgroundColor: "black"
     }
 }
 
@@ -48,19 +52,20 @@ const Project = props => {
     return (
         <Card style={styles.card} sx={{ minWidth: 275, maxWidth: 275, m: 2, height: 300}} >
             <CardContent>
-                <Typography component={'span'} sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    <h4 className="card-title">{props.project.Name}</h4>
-                    <p className="card-text">{props.project.Description}</p>
-                </Typography>
+
+                <h3 className="card-title">{props.project.Name}</h3>                  
+                <p className="card-text">{props.project.Description}</p>
 
                 <BreakdownBar breakdownItems={props.project.Languages} colorMap={props.languageColors} width={200}></BreakdownBar>
 
             </CardContent>
+
             <CardActions>
-                <Button stylevariant="outlined" href={"https://github.com/" + props.project.FullName} target="_blank">
+                <Button style={styles.githubButton} variant="contained" startIcon={<GitHubIcon />}>
                     See Source
                 </Button>
             </CardActions>
+
         </Card>
     );
 };

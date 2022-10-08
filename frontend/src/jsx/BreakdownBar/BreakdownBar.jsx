@@ -12,7 +12,7 @@ export function BreakdownBar(props) {
                                     style={{
                                         backgroundColor: props.colorMap[language],
                                         width: Math.max(
-                                            (props.breakdownItems[language]) * props.width,
+                                            (props.breakdownItems[language] / 100) * props.width,
                                             5
                                         ),
                                         height: 10,
@@ -35,40 +35,43 @@ export function BreakdownBar(props) {
             <div style={{ width: props.width }}>
                 <ul style={{ display: "flex", flexWrap: "wrap", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
                     {Object.keys(props.breakdownItems).map((language) => {
-                        return (
-                            <li
-                                key={`${language}-name`}
-                                style={{
-                                    margin: 2,
-                                    display: "flex",
-                                    justifyItems: "center",
-                                    alignItems: "center"
-                                }}
-                            >
-                                <span
+                        // Remove if value is < 25%
+                        if (parseInt(props.breakdownItems[language]) >= 20) {
+                            return (
+                                <li
+                                    key={`${language}-name`}
                                     style={{
-                                        height: 10,
-                                        width: 10,
-                                        backgroundColor: props.colorMap[language],
-                                        borderRadius: "50%",
-                                        display: "inline-block"
-                                    }}
-                                />
-                                <span
-                                    style={{
-                                        fontWeight: 700,
-                                        marginLeft: 5,
-                                        marginRight: 5,
-                                        color: props.textColor || "black"
+                                        margin: 2,
+                                        display: "flex",
+                                        justifyItems: "center",
+                                        alignItems: "center"
                                     }}
                                 >
-                                    {language}
-                                </span>
-                                <span style={{ color: props.lightColor || "gray" }}>
-                                    {(props.breakdownItems[language]).toFixed(1)}%
-                                </span>
-                            </li>
-                        );
+                                    <span
+                                        style={{
+                                            height: 10,
+                                            width: 10,
+                                            backgroundColor: props.colorMap[language],
+                                            borderRadius: "50%",
+                                            display: "inline-block"
+                                        }}
+                                    />
+                                    <span
+                                        style={{
+                                            fontWeight: 700,
+                                            marginLeft: 5,
+                                            marginRight: 5,
+                                            color: props.textColor || "black"
+                                        }}
+                                    >
+                                        {language}
+                                     </span>
+                                    <span style={{ color: props.lightColor || "gray" }}>
+                                        {(props.breakdownItems[language]).toFixed(1)}%
+                                    </span>
+                                </li>
+                            );
+                        }
                     })}
                 </ul>
             </div>
