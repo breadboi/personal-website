@@ -61,7 +61,11 @@ const Project = props => {
             </CardContent>
 
             <CardActions>
-                <Button style={styles.githubButton} variant="contained" startIcon={<GitHubIcon />}>
+                <Button style={styles.githubButton} 
+                        variant="contained" 
+                        startIcon={<GitHubIcon />} 
+                        href={"https://github.com/" + props.project.FullName} 
+                        target="_blank">
                     See Source
                 </Button>
             </CardActions>
