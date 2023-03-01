@@ -3,9 +3,7 @@ import { Inter } from '@next/font/google'
 import Profile from '@/components/Header'
 import { Projects } from '@/components/Projects'
 import MyNavbar from '@/components/MyNavbar'
-import Skills from '@/components/Skills'
-
-const inter = Inter({ subsets: ['latin'] })
+import Highlights from '@/components/Highlights'
 
 export default function Home() {
   return (
@@ -29,24 +27,22 @@ export default function Home() {
         <div className="h-screen">
 
           <section className="bg-blue-500">
-          <h1 className="text-3xl font-bold text-white justify-center text-center m-10">Projects</h1>
-          <Projects></Projects>            
+            <h1 className="text-3xl font-bold text-white justify-center text-center m-10 pt-10">Projects</h1>
+            <Projects></Projects>
           </section>
 
           <section className="h-full bg-blue-400">
-            <div className="flex items-center justify-center h-full">
-              <div className="text-white text-center">
-                <h1 className="text-3xl font-bold">Section 2</h1>
-                {/* <Skills></Skills> */}
-              </div>
+            <div className="text-white text-center">
+              <h1 className="text-3xl font-bold text-white justify-center text-center pt-10">Highlights</h1>
+              <Highlights></Highlights>
             </div>
           </section>
 
           <section className="h-full bg-blue-300">
             <div className="flex items-center justify-center h-full">
               <div className="text-white text-center">
-                <h1 className="text-3xl font-bold">Section 3</h1>
-                <p className="text-lg">Some text about section 3</p>
+                <h1 className="text-3xl font-bold text-white justify-center text-center">Section 3</h1>
+
               </div>
             </div>
           </section>

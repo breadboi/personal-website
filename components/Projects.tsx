@@ -38,14 +38,14 @@ export function Projects({ }) {
     }
 
     return (isLoading) ? (
-        <div className="flex justify-center flex-wrap">
+        <div className="h-screen flex justify-center flex-wrap">
             <Spinner
                 aria-label="Loading Projects Component"
                 size="xl"
             />
         </div>
     ) : (
-        <div className="flex justify-between flex-wrap">
+        <div className="flex justify-evenly flex-wrap">
             {projects.map((project: GitHubProjectData, i: number) => (
                 <Project key={i} projectData={project} languageColors={languageColors} />
             ))}
@@ -55,15 +55,15 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-64 m-16 flex flex-col justify-between h-80 max-w-xs rounded overflow-hidden shadow-lg">
+        <Card className="flex-grow-0 flex-shrink w-80 m-16 h-80 min-w-[20rem] max-w-xs rounded overflow-hidden shadow-lg">
             <div className="p-6">
-                <h3 className="text-lg font-medium">{projectData.Name}</h3>
+                <h3 className="text-lg font-bold mb-5">{projectData.Name}</h3>
                 <p className="text-base">{projectData.Description}</p>
 
                 <BreakdownBar
                     breakdownItems={projectData.Languages}
                     colorMap={languageColors}
-                    width={150}
+                    width={210}
                 />
             </div>
 
