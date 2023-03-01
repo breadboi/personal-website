@@ -14,65 +14,71 @@ export const BreakdownBar: React.FC<BreakdownBarProps> = (props) => {
     }
 
     return (
-        <div className="flex flex-col">
+        <div style={{ display: "flex-col" }}>
             <div>
-                <ul className="flex overflow-hidden list-none">
+                <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
                     {Object.keys(props.breakdownItems).map((language, index) => {
                         return (
                             <li key={language}>
                                 <div
-                                    className={`
-                    bg-${props.colorMap[language]}
-                    w-${Math.max(
-                                        (props.breakdownItems[language] / 100) * props.width,
-                                        5
-                                    )}
-                    h-10
-                    mr-2
-                    rounded-${index === 0
-                                            ? index === Object.keys(props.breakdownItems).length - 1
-                                                ? "tl-md tl-lg"
-                                                : "tl-md"
-                                            : index === Object.keys(props.breakdownItems).length - 1
-                                                ? "tr-md"
-                                                : ""
-                                        }
-                  `}
+                                    style={{
+                                        backgroundColor: props.colorMap[language],
+                                        width: Math.max(
+                                            (props.breakdownItems[language] / 100) * props.width,
+                                            5
+                                        ),
+                                        height: 10,
+                                        marginRight: 2,
+                                        borderRadius:
+                                            index === 0
+                                                ? index === Object.keys(props.breakdownItems).length - 1
+                                                    ? "10px 10px 10px 10px"
+                                                    : "10px 0 0 10px"
+                                                : index === Object.keys(props.breakdownItems).length - 1
+                                                    ? "0 10px 10px 0"
+                                                    : ""
+                                    }}
                                 />
                             </li>
                         );
                     })}
                 </ul>
             </div>
-            <div className={`w-${props.width}`}>
-                <ul className="flex flex-wrap overflow-hidden list-none">
+            <div style={{ width: props.width }}>
+                <ul style={{ display: "flex", flexWrap: "wrap", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
                     {Object.keys(props.breakdownItems).map((language) => {
                         // Remove if value is < 25%
                         if (props.breakdownItems[language] >= 20) {
                             return (
                                 <li
                                     key={`${language}-name`}
-                                    className="flex items-center justify-center m-2"
+                                    style={{
+                                        margin: 2,
+                                        display: "flex",
+                                        justifyItems: "center",
+                                        alignItems: "center"
+                                    }}
                                 >
                                     <span
-                                        className={`
-                      h-10
-                      w-10
-                      bg-${props.colorMap[language]}
-                      rounded-full
-                      inline-block
-                    `}
+                                        style={{
+                                            height: 10,
+                                            width: 10,
+                                            backgroundColor: props.colorMap[language],
+                                            borderRadius: "50%",
+                                            display: "inline-block"
+                                        }}
                                     />
                                     <span
-                                        className={`
-                      font-bold
-                      text-${props.textColor || "black"}
-                      mx-5
-                    `}
+                                        style={{
+                                            fontWeight: 700,
+                                            marginLeft: 5,
+                                            marginRight: 5,
+                                            color: props.textColor || "black"
+                                        }}
                                     >
                                         {language}
                                     </span>
-                                    <span className={`text-${props.lightColor || "gray-500"}`}>
+                                    <span style={{ color: props.lightColor || "gray" }}>
                                         {(props.breakdownItems[language]).toFixed(1)}%
                                     </span>
                                 </li>

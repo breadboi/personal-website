@@ -28,7 +28,7 @@ export default function Home() {
 
         <div className="h-screen">
 
-          <section className="h-full bg-blue-500">
+          <section className="bg-blue-500">
           <h1 className="text-3xl font-bold text-white justify-center text-center m-10">Projects</h1>
           <Projects></Projects>            
           </section>

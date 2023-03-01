@@ -55,7 +55,7 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-64 h-64 m-2 rounded overflow-hidden shadow-lg">
+        <Card className="w-64 m-16 flex flex-col justify-between h-80 max-w-xs rounded overflow-hidden shadow-lg">
             <div className="p-6">
                 <h3 className="text-lg font-medium">{projectData.Name}</h3>
                 <p className="text-base">{projectData.Description}</p>
@@ -63,7 +63,7 @@ const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageCol
                 <BreakdownBar
                     breakdownItems={projectData.Languages}
                     colorMap={languageColors}
-                    width={200}
+                    width={150}
                 />
             </div>
 
