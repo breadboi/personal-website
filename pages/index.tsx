@@ -3,13 +3,12 @@ import { Inter } from '@next/font/google'
 import Profile from '@/components/Header'
 import { Projects } from '@/components/Projects'
 import MyNavbar from '@/components/MyNavbar'
-import Highlights from '@/components/Highlights'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Brett Carney | Full Stack Software Engineer with a Passion for Docker and CICD</title>
+        <title>Brett Carney | Full Stack Software Engineer with a Passion for Docker, .NET, and CICD</title>
         <meta name="description" content="Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -26,26 +25,28 @@ export default function Home() {
 
         <div className="h-screen">
 
-          <section className="bg-blue-500">
-            <h1 className="text-3xl font-bold text-white justify-center text-center m-10 pt-10">Projects</h1>
+          <section className="min-h-screen overflow-y-auto bg-blue-500">
+            <h1 className="text-3xl font-bold text-white justify-center text-center m-10">Recent Commits</h1>
             <Projects></Projects>
           </section>
 
-          <section className="h-full bg-blue-400">
-            <div className="text-white text-center">
-              <h1 className="text-3xl font-bold text-white justify-center text-center pt-10">Highlights</h1>
-              <Highlights></Highlights>
+          {/* <section className="h-full bg-blue-400">
+            <div className="flex items-center justify-center h-full">
+              <div className="text-white text-center">
+                <h1 className="text-3xl font-bold">Section 2</h1>
+                  <Skills></Skills>
+              </div>
             </div>
           </section>
 
           <section className="h-full bg-blue-300">
             <div className="flex items-center justify-center h-full">
               <div className="text-white text-center">
-                <h1 className="text-3xl font-bold text-white justify-center text-center">Section 3</h1>
-
+                <h1 className="text-3xl font-bold">Section 3</h1>
+                <p className="text-lg">Some text about section 3</p>
               </div>
             </div>
-          </section>
+          </section> */}
 
         </div>
 

@@ -1,22 +1,16 @@
 import React from "react";
 
 interface BreakdownBarProps {
-    breakdownItems: { [key: string]: number };
-    colorMap: { [key: string]: string };
+    breakdownItems: Record<string, number>;
+    colorMap: Record<string, string>;
     width: number;
-    textColor?: string;
-    lightColor?: string;
 }
 
-export const BreakdownBar: React.FC<BreakdownBarProps> = (props) => {
-    if (!props.breakdownItems || typeof props.breakdownItems !== "object") {
-        return <div>No data to display</div>;
-    }
-
+export function BreakdownBar(props: BreakdownBarProps) {
     return (
-        <div style={{ display: "flex-col" }}>
+        <div className="flex-col">
             <div>
-                <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
+                <ul className="flex list-none m-0 p-0 overflow-hidden">
                     {Object.keys(props.breakdownItems).map((language, index) => {
                         return (
                             <li key={language}>
@@ -35,8 +29,8 @@ export const BreakdownBar: React.FC<BreakdownBarProps> = (props) => {
                                                     ? "10px 10px 10px 10px"
                                                     : "10px 0 0 10px"
                                                 : index === Object.keys(props.breakdownItems).length - 1
-                                                    ? "0 10px 10px 0"
-                                                    : ""
+                                                ? "0 10px 10px 0"
+                                                : "",
                                     }}
                                 />
                             </li>
@@ -45,48 +39,32 @@ export const BreakdownBar: React.FC<BreakdownBarProps> = (props) => {
                 </ul>
             </div>
             <div style={{ width: props.width }}>
-                <ul style={{ display: "flex", flexWrap: "wrap", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
+                <ul className="flex flex-wrap list-none m-0 p-0 overflow-hidden">
                     {Object.keys(props.breakdownItems).map((language) => {
-                        // Remove if value is < 25%
+                        // Remove if value is < 25% (languages less involved in the project)
                         if (props.breakdownItems[language] >= 20) {
                             return (
                                 <li
                                     key={`${language}-name`}
-                                    style={{
-                                        margin: 2,
-                                        display: "flex",
-                                        justifyItems: "center",
-                                        alignItems: "center"
-                                    }}
+                                    className="m-2 flex justify-items-center items-center"
                                 >
                                     <span
                                         style={{
                                             height: 10,
                                             width: 10,
-                                            backgroundColor: props.colorMap[language],
                                             borderRadius: "50%",
-                                            display: "inline-block"
+                                            display: "inline-block",
+                                            backgroundColor: props.colorMap[language],
                                         }}
                                     />
-                                    <span
-                                        style={{
-                                            fontWeight: 700,
-                                            marginLeft: 5,
-                                            marginRight: 5,
-                                            color: props.textColor || "black"
-                                        }}
-                                    >
-                                        {language}
-                                    </span>
-                                    <span style={{ color: props.lightColor || "gray" }}>
-                                        {(props.breakdownItems[language]).toFixed(1)}%
-                                    </span>
+                                    {language}
                                 </li>
                             );
                         }
+                        return null;
                     })}
                 </ul>
             </div>
         </div>
     );
-};
+}
