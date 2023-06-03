@@ -2,6 +2,7 @@ import { GitHubLanguageColors, GitHubProjectData, GitHubProjectLanguageData } fr
 import { Card, Spinner } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { BreakdownBar } from "./BreakdownBar";
+import { GoMarkGithub } from 'react-icons/go';
 
 export function Projects({ }) {
     const [isLoading, setLoading] = useState<boolean>(true);
@@ -55,14 +56,14 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-96 h-96 m-2 rounded overflow-hidden shadow-lg">
+        <Card className="w-96 h-96 m-2 rounded overflow-hidden shadow-lg flex flex-col">
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <p>
                     {projectData.Name}
                 </p>
             </h5>
             <div className="p-6">                
-                <p className="text-base">{projectData.Description}</p>
+                <p className="text-base pb-2">{projectData.Description}</p>
 
                 <BreakdownBar
                     breakdownItems={projectData.Languages}
@@ -71,13 +72,14 @@ const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageCol
                 />
             </div>
 
-            <div className="px-6 py-4">
+            <div className="mt-auto">
                 <a
-                    className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded"
+                    className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded flex items-center"
                     href={"https://github.com/" + projectData.FullName}
                     target="_blank"
                 >
-                    See Source
+                    <GoMarkGithub className="mr-2"/>
+                    View Source on GitHub
                 </a>
             </div>
         </Card>
