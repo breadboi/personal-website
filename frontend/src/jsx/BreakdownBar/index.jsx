@@ -1,1 +1,0 @@
-export { BreakdownBar } from './BreakdownBar';
