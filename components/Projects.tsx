@@ -56,7 +56,7 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-screen md:w-1/2 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 m-5 rounded overflow-hidden shadow-lg flex flex-col">
+        <Card className="w-screen md:w-1/3 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 m-5 rounded overflow-hidden shadow-lg flex flex-col">
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <p>
                     {projectData.Name}

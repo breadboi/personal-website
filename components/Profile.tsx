@@ -21,10 +21,9 @@ const Profile: React.FC<Props> = ({ name, title, picture, resumeLink }) => {
           width={300}
           height={300}
         />
-        <div className="ml-4">
-          <h1 className="text-xl font-bold mb-2">{name}</h1>
-          <p className="text-lg font-medium mb-4">{title}</p>
-        </div>
+        
+        <h1 className="text-xl font-bold mb-2">{name}</h1>
+        <p className="text-lg font-medium mb-4">{title}</p>
 
         <a
           href={resumeLink}

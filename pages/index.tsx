@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import Profile from '@/components/Header'
+import Profile from '@/components/Profile'
 import { Projects } from '@/components/Projects'
 import MyNavbar from '@/components/MyNavbar'
 
