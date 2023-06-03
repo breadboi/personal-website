@@ -77,6 +77,7 @@ const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageCol
                     className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded flex items-center"
                     href={"https://github.com/" + projectData.FullName}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <GoMarkGithub className="mr-2"/>
                     View Source on GitHub
