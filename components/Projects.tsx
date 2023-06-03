@@ -20,7 +20,7 @@ export function Projects({ }) {
 
     async function fetchGithub() {
         try {
-            const response = await fetch("/api/github");
+            const response = await fetch("/api/github/recentcommits");
             const data = await response.json();
             setProjects(data);
         } catch (error) {
@@ -30,7 +30,7 @@ export function Projects({ }) {
 
     async function fetchLanguages() {
         try {
-            const response = await fetch("/api/languages");
+            const response = await fetch("/api/github/languages");
             const data = await response.json();
             setLanguageColors(data);
         } catch (error) {
