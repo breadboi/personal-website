@@ -33,9 +33,6 @@ export default function MyNavbar({ }) {
                 <Navbar.Link href="https://blog.brettcarney.com">
                     Blog
                 </Navbar.Link>
-                {/* <Navbar.Link href="/navbars">
-                    Music
-                </Navbar.Link> */}
             </Navbar.Collapse>
         </Navbar>
     );
