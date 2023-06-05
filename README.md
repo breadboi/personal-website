@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Website
 
-## Getting Started
+This is my personal website built with Next.js, Tailwind CSS, TypeScript, and Go. It serves as a platform to showcase my recent GitHub commits and provides links to my other applications in the navigation bar.
 
-First, run the development server:
+## Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [Next.js](https://nextjs.org/): A React framework for building server-side rendered and statically generated websites.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+- [TypeScript](https://www.typescriptlang.org/): A statically typed superset of JavaScript that enhances code maintainability and scalability.
+- [Go](https://golang.org/): A statically typed, compiled language known for its simplicity, efficiency, and concurrency support.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Functionality
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **GitHub Commits**: The website fetches and displays data on my recent GitHub commits, allowing visitors to see my latest contributions.
+- **Navigation Bar**: The navigation bar provides links to my other applications, allowing visitors to explore my portfolio and other projects.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Marketing and Learning
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This personal website serves as a tool for marketing myself and showcasing my skills to potential employers or collaborators. Additionally, it allows me to learn and experiment with new technologies, such as Next.js, Tailwind CSS, TypeScript, and Go. By building this website, I can expand my knowledge and stay up-to-date with the latest web development trends.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
 
-## Learn More
+The website is deployed using Vercel, which provides a seamless integration with Next.js and offers serverless functions through their edge network. These edge functions are implemented using Go, allowing for efficient and performant server-side logic.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to explore the website and reach out to me if you have any questions or opportunities for collaboration!
