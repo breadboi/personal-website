@@ -18,7 +18,7 @@ export default function Home() {
           <Profile name="Brett Carney"
             title="Software Engineer"
             picture="https://avatars.githubusercontent.com/u/32111055?v=4"
-            resumeLink="Resume_BrettCarney_2022.pdf"
+            resumeLink="Resume_BrettCarney_2024.pdf"
           ></Profile>
         </div>
 
