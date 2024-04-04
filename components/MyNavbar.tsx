@@ -30,8 +30,8 @@ export default function MyNavbar({ }) {
                 >
                     Home
                 </Navbar.Link>
-                <Navbar.Link href="https://blog.brettcarney.com">
-                    Blog
+                <Navbar.Link href="https://tools.brettcarney.com">
+                    Toolbox
                 </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
