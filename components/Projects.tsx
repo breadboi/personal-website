@@ -42,12 +42,12 @@ export function Projects({ }) {
 
     return (isLoading) ? (
         <div className="flex flex-wrap gap-5">
-            {Array.from({ length: 3 }).map((_, i) => (
-                <Card key={`skeleton-${i}`} className="w-full md:w-1/3 lg:w-1/3 xl:w-1/4 m-5 flex flex-col">
+            {Array.from({ length: 6 }).map((_, i) => (
+                <Card key={`skeleton-${i}`} className="w-80 h-80 m-5 flex flex-col">
                     <CardHeader>
                         <Skeleton className="h-6 w-2/3" />
                     </CardHeader>
-                    <CardContent className="space-y-3">
+                    <CardContent className="flex-1 space-y-3 overflow-hidden">
                         <Skeleton className="h-4 w-full" />
                         <Skeleton className="h-4 w-5/6" />
                         <Skeleton className="h-3 w-1/3" />
@@ -69,12 +69,14 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-full md:w-1/3 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 m-5 flex flex-col">
+        <Card className="w-80 h-80 m-5 flex flex-col">
             <CardHeader>
-                <CardTitle className="text-2xl">{projectData.Name}</CardTitle>
+                <CardTitle className="text-2xl truncate">{projectData.Name}</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <p className="text-base">{projectData.Description}</p>
+            <CardContent className="flex-1 space-y-4 overflow-hidden">
+                <p className="text-base [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden">
+                    {projectData.Description}
+                </p>
 
                 <BreakdownBar
                     breakdownItems={projectData.Languages}

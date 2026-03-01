@@ -7,16 +7,18 @@ interface BreakdownBarProps {
 }
 
 export function BreakdownBar(props: BreakdownBarProps) {
+    const defaultColor = "#3b82f6";
     return (
         <div className="flex-col">
             <div>
                 <ul className="flex list-none m-0 p-0 overflow-hidden">
                     {Object.keys(props.breakdownItems).map((language, index) => {
+                        const color = props.colorMap[language] ?? defaultColor;
                         return (
                             <li key={language}>
                                 <div
                                     style={{
-                                        backgroundColor: props.colorMap[language],
+                                        backgroundColor: color,
                                         width: Math.max(
                                             (props.breakdownItems[language] / 100) * props.width,
                                             5
@@ -43,6 +45,7 @@ export function BreakdownBar(props: BreakdownBarProps) {
                     {Object.keys(props.breakdownItems).map((language) => {
                         // Remove if value is < 25% (languages less involved in the project)
                         if (props.breakdownItems[language] >= 20) {
+                            const color = props.colorMap[language] ?? defaultColor;
                             return (
                                 <li
                                     key={`${language}-name`}
@@ -54,7 +57,7 @@ export function BreakdownBar(props: BreakdownBarProps) {
                                             width: 10,
                                             borderRadius: "50%",
                                             display: "inline-block",
-                                            backgroundColor: props.colorMap[language],
+                                            backgroundColor: color,
                                         }}
                                     />
                                     {language}
