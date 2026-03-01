@@ -41,9 +41,9 @@ export function Projects({ }) {
     }, [])
 
     return (isLoading) ? (
-        <div className="flex flex-wrap gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {Array.from({ length: 6 }).map((_, i) => (
-                <Card key={`skeleton-${i}`} className="w-80 h-80 m-5 flex flex-col">
+                <Card key={`skeleton-${i}`} className="mx-auto w-full max-w-sm h-80 flex flex-col">
                     <CardHeader>
                         <Skeleton className="h-6 w-2/3" />
                     </CardHeader>
@@ -59,7 +59,7 @@ export function Projects({ }) {
             ))}
         </div>
     ) : (
-        <div className="flex justify-between flex-wrap">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project: GitHubProjectData, i: number) => (
                 <Project key={i} projectData={project} languageColors={languageColors} />
             ))}
@@ -69,7 +69,7 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-80 h-80 m-5 flex flex-col">
+        <Card className="mx-auto w-full max-w-sm h-80 flex flex-col">
             <CardHeader>
                 <CardTitle className="text-2xl truncate">{projectData.Name}</CardTitle>
             </CardHeader>
