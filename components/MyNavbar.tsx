@@ -1,4 +1,4 @@
-import { Navbar } from "flowbite-react";
+import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 
 export default function MyNavbar({ }) {
     return (
@@ -6,12 +6,12 @@ export default function MyNavbar({ }) {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand
+            <NavbarBrand
                 // as={{
                 //   $$typeof: Symbol(react.forward_ref),
                 //   render: LinkWithRef
                 // }}
-                to="/navbars"
+                href="/navbars"
             >
                 <img
                     src="LogoIcon.png"
@@ -21,19 +21,19 @@ export default function MyNavbar({ }) {
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                     BC
                 </span>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse>
-                <Navbar.Link
+            </NavbarBrand>
+            <NavbarToggle />
+            <NavbarCollapse>
+                <NavbarLink
                     href="/"
                     active={true}
                 >
                     Home
-                </Navbar.Link>
-                <Navbar.Link href="https://tools.brettcarney.com">
+                </NavbarLink>
+                <NavbarLink href="https://tools.brettcarney.com">
                     Toolbox
-                </Navbar.Link>
-            </Navbar.Collapse>
+                </NavbarLink>
+            </NavbarCollapse>
         </Navbar>
     );
 }

@@ -9,15 +9,6 @@ export function Projects({ }) {
     const [projects, setProjects] = useState<GitHubProjectData[]>([]);
     const [languageColors, setLanguageColors] = useState<GitHubLanguageColors>({});
 
-    useEffect(() => {
-        Promise.allSettled([
-            fetchGithub(),
-            fetchLanguages()
-        ]).then(() => {
-            setLoading(false);
-        })
-    }, [])
-
     async function fetchGithub() {
         try {
             const response = await fetch("/api/github/recentcommits");
@@ -37,6 +28,15 @@ export function Projects({ }) {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        Promise.allSettled([
+            fetchGithub(),
+            fetchLanguages()
+        ]).then(() => {
+            setLoading(false);
+        })
+    }, [])
 
     return (isLoading) ? (
         <div className="flex justify-center flex-wrap">
