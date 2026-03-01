@@ -1,22 +1,15 @@
 import { GitHubLanguageColors, GitHubProjectData, GitHubProjectLanguageData } from "@/types/Projects/GitHubProjectData";
-import { Card, Spinner } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { BreakdownBar } from "./BreakdownBar";
 import { GoMarkGithub } from 'react-icons/go';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function Projects({ }) {
     const [isLoading, setLoading] = useState<boolean>(true);
     const [projects, setProjects] = useState<GitHubProjectData[]>([]);
     const [languageColors, setLanguageColors] = useState<GitHubLanguageColors>({});
-
-    useEffect(() => {
-        Promise.allSettled([
-            fetchGithub(),
-            fetchLanguages()
-        ]).then(() => {
-            setLoading(false);
-        })
-    }, [])
 
     async function fetchGithub() {
         try {
@@ -38,12 +31,32 @@ export function Projects({ }) {
         }
     }
 
+    useEffect(() => {
+        Promise.allSettled([
+            fetchGithub(),
+            fetchLanguages()
+        ]).then(() => {
+            setLoading(false);
+        })
+    }, [])
+
     return (isLoading) ? (
-        <div className="flex justify-center flex-wrap">
-            <Spinner
-                aria-label="Loading Projects Component"
-                size="xl"
-            />
+        <div className="flex flex-wrap gap-5">
+            {Array.from({ length: 3 }).map((_, i) => (
+                <Card key={`skeleton-${i}`} className="w-full md:w-1/3 lg:w-1/3 xl:w-1/4 m-5 flex flex-col">
+                    <CardHeader>
+                        <Skeleton className="h-6 w-2/3" />
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-5/6" />
+                        <Skeleton className="h-3 w-1/3" />
+                    </CardContent>
+                    <CardFooter>
+                        <Skeleton className="h-9 w-40" />
+                    </CardFooter>
+                </Card>
+            ))}
         </div>
     ) : (
         <div className="flex justify-between flex-wrap">
@@ -56,33 +69,31 @@ export function Projects({ }) {
 
 const Project: React.FC<GitHubProjectLanguageData> = ({ projectData, languageColors }) => {
     return (
-        <Card className="w-screen md:w-1/3 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 m-5 rounded overflow-hidden shadow-lg flex flex-col">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                <p>
-                    {projectData.Name}
-                </p>
-            </h5>
-            <div className="pt-5">                
-                <p className="text-base pb-2">{projectData.Description}</p>
+        <Card className="w-full md:w-1/3 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 m-5 flex flex-col">
+            <CardHeader>
+                <CardTitle className="text-2xl">{projectData.Name}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <p className="text-base">{projectData.Description}</p>
 
                 <BreakdownBar
                     breakdownItems={projectData.Languages}
                     colorMap={languageColors}
                     width={200}
                 />
-            </div>
-
-            <div className="mt-auto">
-                <a
-                    className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded flex items-center"
-                    href={"https://github.com/" + projectData.FullName}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <GoMarkGithub className="mr-2"/>
-                    View Source on GitHub
-                </a>
-            </div>
+            </CardContent>
+            <CardFooter className="mt-auto">
+                <Button asChild variant="secondary" className="gap-2">
+                    <a
+                        href={"https://github.com/" + projectData.FullName}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <GoMarkGithub />
+                        View Source on GitHub
+                    </a>
+                </Button>
+            </CardFooter>
         </Card>
     );
 };
