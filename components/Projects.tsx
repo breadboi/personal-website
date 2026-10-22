@@ -1,7 +1,7 @@
 import { GitHubLanguageColors, GitHubProjectData, GitHubProjectLanguageData } from "@/types/Projects/GitHubProjectData";
 import React, { useEffect, useState } from "react";
 import { BreakdownBar } from "./BreakdownBar";
-import { GoMarkGithub } from 'react-icons/go';
+import { FaGithub as GoMarkGithub } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
