@@ -29,7 +29,11 @@ func RecentCommits(w http.ResponseWriter, r *http.Request) {
 	repositories := GetRecentRepos()
 
 	// Only display the most recent six repositories
-	trimmedRepositories := append(repositories[:6])
+	limit := len(repositories)
+	if limit > 6 {
+		limit = 6
+	}
+	trimmedRepositories := repositories[:limit]
 
 	jsonResp, err := json.Marshal(trimmedRepositories)
 
@@ -55,13 +59,13 @@ func GetRecentRepos() []Repo {
 
 	client := github.NewClient(tokenClient)
 
-	// list all repositories for the authenticated user
-	repos, _, err := client.Repositories.List(context, "", nil)
+	// Only public repositories may be exposed by this unauthenticated endpoint.
+	repos, _, err := client.Repositories.List(context, "", &github.RepositoryListOptions{Visibility: "public"})
 
 	// Handle our nil case
 	if err != nil {
 		fmt.Printf("Problem in getting repository information %v\n", err)
-		os.Exit(1)
+		return []Repo{}
 	}
 
 	// Create empty list
@@ -74,7 +78,7 @@ func GetRecentRepos() []Repo {
 	for _, element := range repos {
 
 		// Check if we have nil values for the name or description strings
-		if element.FullName != nil && element.Description != nil {
+		if !element.GetPrivate() && element.FullName != nil && element.Description != nil {
 			ownerRepoSplit := strings.Split(*element.FullName, "/")
 			languages, _, _ := client.Repositories.ListLanguages(context, ownerRepoSplit[0], ownerRepoSplit[1])
 
